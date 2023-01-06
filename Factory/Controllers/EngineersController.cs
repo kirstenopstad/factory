@@ -45,6 +45,7 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      
       return View(thisEngineer);
     }
 
@@ -76,6 +77,15 @@ namespace Factory.Controllers
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    // add get method for AddMachine route
+
+    [HttpPost]
+    public ActionResult AddMachine(Engineer engineer, int MachineId)
+    {
+      // add logic to add machine to engineer
+      return RedirectToAction("Details", new { id = engineer.EngineerId});
     }
   }
 }

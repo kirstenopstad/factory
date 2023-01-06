@@ -3,10 +3,13 @@
 }
 
 @using Factory.Models
+@model Factory.Models.Engineer
 
 <h1>Engineer Details</h1>
 
 <h2>@Model.Name</h2>
+
+@* Add link to add machine to engineer *@
 
 @Html.ActionLink("Edit Engineer", "Edit", new {id = @Model.EngineerId})
 <br>
