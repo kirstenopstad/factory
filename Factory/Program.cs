@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ProjectName.Models;
+using Factory.Models;
 
 namespace ProjectName
 {
@@ -13,8 +13,8 @@ namespace ProjectName
 
       builder.Services.AddControllersWithViews();
 
-      // add EF Core as a service to our To Do List app, specify ToDoListContext as the type
-      builder.Services.AddDbContext<ToDoListContext>(
+      // add EF Core as a service to our  app, specify ProjectContext as the type
+      builder.Services.AddDbContext<FactoryContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
