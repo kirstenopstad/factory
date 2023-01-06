@@ -40,7 +40,42 @@ namespace Factory.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");  
       }
+    }
 
+    public ActionResult Details(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
+    }
+
+    public ActionResult Edit(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Engineer engineer)
+    {
+      if (!ModelState.IsValid)
+      {
+        return View(engineer);
+      }
+      else
+      {
+        _db.Engineers.Update(engineer);
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = engineer.EngineerId});  
+      }
+    }
+
+    [HttpPost]
+    public ActionResult Delete(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      _db.Engineers.Remove(thisEngineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
