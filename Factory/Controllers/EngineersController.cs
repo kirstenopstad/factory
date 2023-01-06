@@ -44,8 +44,10 @@ namespace Factory.Controllers
 
     public ActionResult Details(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      
+      Engineer thisEngineer = _db.Engineers
+                                 .Include(engineer => engineer.EngineerMachines)
+                                 .ThenInclude(engineerMachine => engineerMachine.Machine)
+                                 .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
