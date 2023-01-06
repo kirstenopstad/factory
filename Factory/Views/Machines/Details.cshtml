@@ -11,6 +11,23 @@
 <p>@Html.DisplayNameFor(model => model.Model) : @Html.DisplayFor(model => model.Model)</p>
 <p>@Html.DisplayNameFor(model => model.Serial) : @Html.DisplayFor(model => model.Serial)</p>
 
+@if (@Model.EngineerMachines.Count == 0)
+{
+  <p>There are no engineers currently authorized to work on this machine.</p>
+}
+else
+{
+  <h4>Engineers Authorized to Repair:</h4>
+  <ul>
+    @foreach (EngineerMachine entry in Model.EngineerMachines)
+    {
+      <li>@entry.Engineer.Name</li>
+    }
+  </ul>
+}
+
+@Html.ActionLink("Add Authorized Engineer", "AddEngineer", new {id = @Model.MachineId})
+<br>
 @Html.ActionLink("Edit Machine", "Edit", new {id = @Model.MachineId})
 <br>
 @using (Html.BeginForm("Delete", "Machines", new { id = @Model.MachineId }))
