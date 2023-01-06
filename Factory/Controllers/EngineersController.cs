@@ -112,7 +112,7 @@ namespace Factory.Controllers
       EngineerMachine assocation = _db.EngineerMachines.FirstOrDefault(assoc => assoc.EngineerMachineId == id);
       _db.EngineerMachines.Remove(assocation);
       _db.SaveChanges();
-      return RedirectToAction("Details", "Engineers", new { id = assocation.Engineer.EngineerId});
+      return RedirectToAction("Details", "Engineers", new { id = assocation.EngineerId});
     }
   }
 }
