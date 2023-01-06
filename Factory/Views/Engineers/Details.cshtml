@@ -8,6 +8,13 @@
 <h1>Engineer Details</h1>
 
 <h2>@Model.Name</h2>
+<p>
+  @{ string status = "";
+     @if (@Model.Status == false) { status = "Idle"; }
+     else { status = "Active"; }
+   }
+   Status: @status
+</p>
 
 @if (@Model.EngineerMachines.Count == 0)
 {
