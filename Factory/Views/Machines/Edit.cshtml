@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Machine
+
+<h1>Edit Machine</h1>
+<p>Editing @Model.Model</p>
+
+<p>@Html.ValidationMessageFor(model => model.Manufacturer)</p>
+<p>@Html.ValidationMessageFor(model => model.Model)</p>
+<p>@Html.ValidationMessageFor(model => model.Serial)</p>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.LabelFor(model => model.Manufacturer)
+  @Html.TextBoxFor(model => model.Manufacturer)
+
+  @Html.LabelFor(model => model.Model)
+  @Html.TextBoxFor(model => model.Model)
+
+  @Html.LabelFor(model => model.Serial)
+  @Html.TextBoxFor(model => model.Serial)
+  <input type="submit" value="Save Changes" />
+}
