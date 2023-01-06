@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-// using ProjectName.Models;
+using Factory.Models;
 
-namespace ProjectName.Controllers
+namespace Factory.Controllers
 {
-  public class HomeController : Controllers
+  public class HomeController : Controller
   {
     // Routes
     // [HttpGet(")]
