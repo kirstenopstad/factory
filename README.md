@@ -1,8 +1,8 @@
-# Project Name
+# Factory Work Orders
 
 #### By Kirsten Opstad
 
-#### A template for a C# ASP.Net Core 6 MVC program 
+#### An application to keep track of machine repairs for a fictional factory
 
 ## Technologies Used
 
@@ -12,56 +12,72 @@
 * EF Core 6
 * SQL
 * MySQL
-* MySQL Workbench
 * LINQ
 
 ## Description
 
+An MVC web application to manage  engineers and the machines they are licensed to fix. A factory manager should be able to add a list of engineers, a list of machines, and specify which engineers are licensed to repair which machines. An engineer can be licensed to repair many machines and a machine can have many engineers licensed to repair it.
+
+A demonstration of understanding of relational databases and many-to-many relationships using a code-first approach.
+
 ### Objectives (MVP)
+
+#### User Stories
+* As the factory manager, I need to be able to see a list of all engineers, and I need to be able to see a list of all machines.
+* As the factory manager, I need to be able to select a engineer, see their details, and see a list of all machines that engineer is licensed to repair. I also need to be able to select a machine, see its details, and see a list of all engineers licensed to repair it.
+* As the factory manager, I need to add new engineers to our system when they are hired. I also need to add new machines to our system when they are installed.
+* I should not be able to create an engineer or a machine if the form's fields are empty or contain invalid values.
+* As the factory manager, I should be able to add new machines even if no engineers are employed. I should also be able to add new engineers even if no machines are installed.
+* As the factory manager, I need to be able to add or remove machines that a specific engineer is licensed to repair. I also need to be able to modify this relationship from the other side, and add or remove engineers from a specific machine.
+* I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
+* When I access the application, I should see a splash page that lists all engineers and machines.
+
+Additionally, this code will be reviewed for the following objectives:
+
+- Does at least one of your classes have all CRUD methods implemented in your app?
+- Are you able to view both sides of the many-many relationship? For a particular instance of a class, are you able to view all of the instances of the other class that are related to it?
+- Build files and sensitive information are included in .gitignore file and is not to be tracked by Git, and includes instructions on how to create the appsettings.json and set up the project.
+- Project is in a polished, portfolio-quality state.
+- The prompt’s required functionality and baseline project requirements are in place by the deadline.
 
 <!-- ![Screenshot of Databases](imagelink) -->
 
 <!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
 
 ### Goals
-1. Meet MVP
-2. Goal 2
-3. Goal 3
+1. Meet MVP as described by user stories.
+2. Add all CRUD methods to both classes.
+3. Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
+4. Add properties to specify if an engineer is idle, or actively working on repairs.
+5. Add inspection dates to the machines, or dates of license renewal to the engineers.
+6. Add a table for incidents, showing which engineer repaired which machine.
+7. Add a table for locations, and specify which engineers or machines are located at which factory.
+8. Add styling to give life to the project.
 
 ## Setup/Installation Requirements
 
-#### Get copy of MySQL database
-1. Clone this repo to your workspace.
-2. Open MySQLWorkbench [Click here for instructions to download]
-3. Under Administration Tab, select Data Import/Restore
-  * Select 'Import from Self Contained File'
-  * Select ../animal-shelter-export.sql from the AnimalShelter directory
-  <!-- ![Screenshot of MySQL Import Settings](INSERT SCREENSHOT LINK) -->
-  * Select "New..." and set new schema name to **PROJECT-NAME**
-  * Select 'Start Import'
-4. You should now have a copy of the **PROJECT-NAME** database on your machine.
-
-#### Open project
-1. Navigate to the `Project Name` directory.
+1. Navigate to the `Factory` directory.
 2. Create a file named `appsettings.json` with the following code. Be sure to update the Default Connection to your MySQL credentials.
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=[PROJECT-NAME];uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];",
+    "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];",
   }
 }
 ```
-3. Install dependencies within the `Project Name` directory
+3. Install dependencies within the `Factory` directory
 ```
 $ dotnet restore
-````
-
-4. To build & run program in development mode 
+```
+4. To build a local database
+```
+$ dotnet ef database update
+```
+6. To build & run program in development mode 
  ```
  $ dotnet run
  ```
-
-5. To build & run program in production mode 
+7. To build & run program in production mode 
  ```
  dotnet run --launch-profile "production"
  ```
