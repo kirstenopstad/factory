@@ -13,6 +13,10 @@ namespace Factory.Models
     public string Model { get; set; }
     [Required(ErrorMessage = "Serial number is required.")]
     public string Serial { get; set; }
+    [Required(ErrorMessage = "Operating status is required.")]
+    public bool OperationalStatus { get; set; }
+    [Required(ErrorMessage = "Repair status is required.")]
+    public bool RepairStatus { get; set; }
     public List<EngineerMachine> EngineerMachines { get; }
   }
 }
