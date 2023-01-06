@@ -10,6 +10,8 @@
 <p>@Html.ValidationMessageFor(model => model.Manufacturer)</p>
 <p>@Html.ValidationMessageFor(model => model.Model)</p>
 <p>@Html.ValidationMessageFor(model => model.Serial)</p>
+<p>@Html.ValidationMessageFor(model => model.OperationalStatus)</p>
+<p>@Html.ValidationMessageFor(model => model.RepairStatus)</p>
 
 @using (Html.BeginForm())
 {
@@ -21,5 +23,11 @@
 
   @Html.LabelFor(model => model.Serial)
   @Html.TextBoxFor(model => model.Serial)
+
+  @Html.Label("Operational?")
+  @Html.CheckBoxFor(model => model.OperationalStatus)
+
+  @Html.Label("Under Repair?")
+  @Html.CheckBoxFor(model => model.RepairStatus)
   <input type="submit" value="Add Machine" />
 }
