@@ -14,5 +14,9 @@
 
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
+
+  @Html.Label("Active?")
+  @Html.CheckBoxFor(model => model.Status)
+  
   <input type="submit" value="Save Changes" />
 }
