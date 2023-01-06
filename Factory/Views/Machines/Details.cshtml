@@ -23,7 +23,7 @@ else
     {
       <li>
         @entry.Engineer.Name
-        @* Add link to remove authorization*@
+        
         @using (Html.BeginForm("RemoveEngineer", "Machines", routeValues: new { id = entry.EngineerMachineId}))
         {
           <input type="submit" value="Remove Authorized Engineer">
