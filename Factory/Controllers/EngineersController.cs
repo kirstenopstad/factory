@@ -21,5 +21,18 @@ namespace Factory.Controllers
     {
       return View(_db.Engineers.ToList());
     }
+
+    public ActionResult Create()
+    {
+      return View()
+    }
+
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add();
+      _db.SaveChanges();
+      return RedirectToAction("Index")
+    }
   }
 }
