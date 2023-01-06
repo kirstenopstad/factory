@@ -18,7 +18,14 @@ else
   <h4>Machines Authorized to Repair:</h4>
   @foreach (EngineerMachine entry in Model.EngineerMachines)
   {
-    <li>@entry.Machine.Manufacturer | @entry.Machine.Model</li>
+    <li>
+      @entry.Machine.Manufacturer | @entry.Machine.Model
+      @* Add link to remove authorization*@
+      @using (Html.BeginForm("RemoveMachine", "Engineers", routeValues: new { id = entry.EngineerMachineId }))
+      {
+        <input type="submit" value="Remove Authorization"/>
+      }
+    </li>
   }
 }
 
