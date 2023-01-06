@@ -50,8 +50,8 @@ Additionally, this code will be reviewed for the following objectives:
 ### Goals
 1. ✅ Meet MVP as described by user stories.
 2. ✅ Add all CRUD methods to both classes.
-3. Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
-4. Add properties to specify if an engineer is idle, or actively working on repairs.
+3. ✅ Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
+4. ✅ Add properties to specify if an engineer is idle, or actively working on repairs.
 5. Add inspection dates to the machines, or dates of license renewal to the engineers.
 6. Add a table for incidents, showing which engineer repaired which machine.
 7. Add a table for locations, and specify which engineers or machines are located at which factory.
