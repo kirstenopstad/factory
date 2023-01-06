@@ -9,8 +9,21 @@
 
 <h2>@Model.Name</h2>
 
-@* Add link to add machine to engineer *@
+@if (@Model.EngineerMachines.Count == 0)
+{
+  <p>This engineer is not yet authorized to work on any machines.</p>
+}
+else
+{
+  <h4>Machines Authorized to Repair:</h4>
+  @foreach (EngineerMachine entry in Model.EngineerMachines)
+  {
+    <li>@entry.Machine.Manufacturer | @entry.Machine.Model</li>
+  }
+}
 
+@Html.ActionLink("Add Machine to Engineer", "AddMachine", new {id = @Model.EngineerId})
+<br>
 @Html.ActionLink("Edit Engineer", "Edit", new {id = @Model.EngineerId})
 <br>
 @using (Html.BeginForm("Delete", "Engineers", new { id = @Model.EngineerId }))
