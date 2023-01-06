@@ -44,7 +44,10 @@ namespace Factory.Controllers
 
     public ActionResult Details(int id)
     {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      Machine thisMachine = _db.Machines
+                               .Include(machine => machine.EngineerMachines)
+                               .ThenInclude(engineerMachine => engineerMachine.Engineer)
+                               .FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
 
@@ -77,5 +80,30 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult AddEngineer(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(thisMachine);
+    }
+
+    [HttpPost]
+    public ActionResult AddEngineer(Machine machine, int engineerId)
+    {
+      // query to see if assocation exists, make null if not
+      #nullable enable
+      EngineerMachine? association = _db.EngineerMachines
+                                        .FirstOrDefault(assoc => (assoc.MachineId == machine.MachineId &&  assoc.EngineerId == engineerId));
+      #nullable disable
+      // if assoc does not exist
+      if (association == null && engineerId != 0)
+      {
+        _db.EngineerMachines
+           .Add(new EngineerMachine() { EngineerId = engineerId, MachineId = machine.MachineId});
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = machine.MachineId});
+    } 
   }
 }
