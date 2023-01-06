@@ -105,5 +105,14 @@ namespace Factory.Controllers
       }
       return RedirectToAction("Details", new { id = engineer.EngineerId});
     }
+
+    [HttpPost]
+    public ActionResult RemoveMachine(int id)
+    {
+      EngineerMachine assocation = _db.EngineerMachines.FirstOrDefault(assoc => assoc.EngineerMachineId == id);
+      _db.EngineerMachines.Remove(assocation);
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Engineers", new { id = assocation.Engineer.EngineerId});
+    }
   }
 }
