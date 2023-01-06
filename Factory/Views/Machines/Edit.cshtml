@@ -24,5 +24,11 @@
 
   @Html.LabelFor(model => model.Serial)
   @Html.TextBoxFor(model => model.Serial)
+
+  @Html.Label("Operational?")
+  @Html.CheckBoxFor(model => model.OperationalStatus)
+
+  @Html.Label("Under Repair?")
+  @Html.CheckBoxFor(model => model.RepairStatus)
   <input type="submit" value="Save Changes" />
 }
