@@ -79,12 +79,28 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    // add get method for AddMachine route
+    public ActionResult AddMachine(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
+      return View(thisEngineer);
+    }
 
     [HttpPost]
-    public ActionResult AddMachine(Engineer engineer, int MachineId)
+    public ActionResult AddMachine(Engineer engineer, int machineId)
     {
-      // add logic to add machine to engineer
+      // query to see if assocation exists, make null if not
+      #nullable enable
+      EngineerMachine? association = _db.EngineerMachines
+                                         .FirstOrDefault(assoc => (assoc.EngineerId == engineer.EngineerId &&  assoc.MachineId == machineId));
+      #nullable disable
+      // if assoc does not exist
+      if (association == null && machineId != 0)
+      {
+        _db.EngineerMachines
+           .Add(new EngineerMachine() { MachineId = machineId, EngineerId = engineer.EngineerId});
+        _db.SaveChanges();
+      }
       return RedirectToAction("Details", new { id = engineer.EngineerId});
     }
   }
