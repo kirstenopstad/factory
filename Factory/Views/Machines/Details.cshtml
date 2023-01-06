@@ -10,6 +10,17 @@
 <p>@Html.DisplayNameFor(model => model.Manufacturer) : @Html.DisplayFor(model => model.Manufacturer)</p>
 <p>@Html.DisplayNameFor(model => model.Model) : @Html.DisplayFor(model => model.Model)</p>
 <p>@Html.DisplayNameFor(model => model.Serial) : @Html.DisplayFor(model => model.Serial)</p>
+<p>
+  @{ string status = ""; 
+     @if (@Model.OperationalStatus == true) { status = "Operational"; }
+     else {status = "Malfunctioning";} 
+    }
+  @{ string repairStatus = ""; 
+     @if (@Model.RepairStatus == true) { repairStatus = "Under Repair"; }
+     else {repairStatus = "Not Under Repair";} 
+    }
+    Satus: @status, @repairStatus
+</p>
 
 @if (@Model.EngineerMachines.Count == 0)
 {
