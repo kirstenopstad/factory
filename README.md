@@ -20,6 +20,9 @@ An MVC web application to manage  engineers and the machines they are licensed t
 
 A demonstration of understanding of relational databases and many-to-many relationships using a code-first approach.
 
+### Database Schema
+![Screenshot of database schema](Factory/wwwroot/images/schema0.png)
+
 ### Objectives (MVP)
 
 #### User Stories
