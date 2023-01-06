@@ -104,6 +104,16 @@ namespace Factory.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = machine.MachineId});
-    } 
+    }
+
+    [HttpPost]
+    public ActionResult RemoveEngineer(int id)
+    {
+      EngineerMachine association = _db.EngineerMachines.FirstOrDefault(assoc => assoc.EngineerMachineId == id);
+      _db.EngineerMachines.Remove(association);
+      _db.SaveChanges();
+
+      return RedirectToAction("Details", new { id = association.MachineId });
+    }
   }
 }
