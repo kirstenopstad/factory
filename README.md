@@ -27,12 +27,12 @@ A demonstration of understanding of relational databases and many-to-many relati
 
 #### User Stories
 * ✅ As the factory manager, I need to be able to see a list of all engineers, and I need to be able to see a list of all machines. 
-* As the factory manager, I need to be able to select a engineer, see their details, and see a list of all machines that engineer is licensed to repair. I also need to be able to select a machine, see its details, and see a list of all engineers licensed to repair it.
+* ✅ As the factory manager, I need to be able to select a engineer, see their details, and see a list of all machines that engineer is licensed to repair. I also need to be able to select a machine, see its details, and see a list of all engineers licensed to repair it.
 * ✅ As the factory manager, I need to add new engineers to our system when they are hired. I also need to add new machines to our system when they are installed. 
 * ✅ I should not be able to create an engineer or a machine if the form's fields are empty or contain invalid values. 
 * ✅ As the factory manager, I should be able to add new machines even if no engineers are employed. I should also be able to add new engineers even if no machines are installed. 
 * As the factory manager, I need to be able to add or remove machines that a specific engineer is licensed to repair. I also need to be able to modify this relationship from the other side, and add or remove engineers from a specific machine.
-* I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
+* ✅ I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
 * When I access the application, I should see a splash page that lists all engineers and machines.
 
 Additionally, this code will be reviewed for the following objectives:
@@ -49,7 +49,7 @@ Additionally, this code will be reviewed for the following objectives:
 
 ### Goals
 1. Meet MVP as described by user stories.
-2. Add all CRUD methods to both classes.
+2. ✅ Add all CRUD methods to both classes.
 3. Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
 4. Add properties to specify if an engineer is idle, or actively working on repairs.
 5. Add inspection dates to the machines, or dates of license renewal to the engineers.
