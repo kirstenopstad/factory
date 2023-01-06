@@ -2,4 +2,30 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models;
+
 <h1>Factory</h1>
+
+<h4>Engineers</h4>
+@if (@Model["engineers"].Length == 0)
+{
+  <p>There are no registered engineers yet.</p>
+}
+<ul>
+  @foreach (Engineer engineer in Model["engineers"])
+  {
+    <li>@engineer.Name</li>
+  }
+</ul>
+
+<h4>Machines</h4>
+@if (@Model["machines"].Length == 0)
+{
+  <p>There are no registered machines yet.</p>
+}
+<ul>
+  @foreach (Machine machine in Model["machines"])
+  {
+    <li>@machine.Model</li>
+  }
+</ul>
