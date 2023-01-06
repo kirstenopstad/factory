@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Machine
+
+<h1>Machine Details</h1>
+
+<p>@Html.DisplayNameFor(model => model.Manufacturer) : @Html.DisplayFor(model => model.Manufacturer)</p>
+<p>@Html.DisplayNameFor(model => model.Model) : @Html.DisplayFor(model => model.Model)</p>
+<p>@Html.DisplayNameFor(model => model.Serial) : @Html.DisplayFor(model => model.Serial)</p>
+
+@Html.ActionLink("Edit Machine", "Edit", new {id = @Model.MachineId})
+<br>
+@using (Html.BeginForm("Delete", "Machines", new { id = @Model.MachineId }))
+{
+  <input type="submit" value="Delete Machine" />
+}
