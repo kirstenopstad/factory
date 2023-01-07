@@ -21,7 +21,7 @@ An MVC web application to manage  engineers and the machines they are licensed t
 A demonstration of understanding of relational databases and many-to-many relationships using a code-first approach.
 
 ### Database Schema
-![Screenshot of database schema](Factory/wwwroot/images/schema1.png)
+![Screenshot of database schema](Factory/wwwroot/images/schema2.png)
 
 ### Objectives (MVP)
 
@@ -52,7 +52,7 @@ Additionally, this code will be reviewed for the following objectives:
 2. ✅ Add all CRUD methods to both classes.
 3. ✅ Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
 4. ✅ Add properties to specify if an engineer is idle, or actively working on repairs.
-5. Add inspection dates to the machines, or dates of license renewal to the engineers.
+5. ✅ Add inspection dates to the machines, or dates of license renewal to the engineers.
 6. Add a table for incidents, showing which engineer repaired which machine.
 7. Add a table for locations, and specify which engineers or machines are located at which factory.
 8. Add styling to give life to the project.
