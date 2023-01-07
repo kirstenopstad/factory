@@ -29,5 +29,8 @@
 
   @Html.Label("Under Repair?")
   @Html.CheckBoxFor(model => model.RepairStatus)
+
+  @Html.LabelFor(model => model.InspectionDate)
+  @Html.TextBoxFor(model => model.InspectionDate, new { type="date" })
   <input type="submit" value="Add Machine" />
 }
