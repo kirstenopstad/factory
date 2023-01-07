@@ -21,6 +21,13 @@
     }
     Satus: @status, @repairStatus
 </p>
+<p>
+  @{ string date = "";
+     @if (@Model.InspectionDate != null) {date = @Model.InspectionDate?.ToString("MM-dd-yyyy");}
+     else {date = "N/A";}
+   }
+   Inspection Date: @date
+</p>
 
 @if (@Model.EngineerMachines.Count == 0)
 {
