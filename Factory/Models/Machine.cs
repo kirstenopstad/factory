@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,6 +18,7 @@ namespace Factory.Models
     public bool OperationalStatus { get; set; }
     [Required(ErrorMessage = "Repair status is required.")]
     public bool RepairStatus { get; set; }
+    public Nullable <DateTime> InspectionDate { get; set; }
     public List<EngineerMachine> EngineerMachines { get; }
   }
 }
