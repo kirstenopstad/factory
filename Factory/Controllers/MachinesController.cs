@@ -36,6 +36,12 @@ namespace Factory.Controllers
       }
       else
       {
+        // default ops status is true
+        machine.OperationalStatus = true;
+        // default rep status is false
+        machine.RepairStatus = false;
+        // default inspection date is null
+        machine.InspectionDate = null;
         _db.Machines.Add(machine);
         _db.SaveChanges();
         return RedirectToAction("Index");  
