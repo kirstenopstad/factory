@@ -23,14 +23,6 @@
 
   @Html.LabelFor(model => model.Serial)
   @Html.TextBoxFor(model => model.Serial)
-
-  @Html.Label("Operational?")
-  @Html.CheckBoxFor(model => model.OperationalStatus)
-
-  @Html.Label("Under Repair?")
-  @Html.CheckBoxFor(model => model.RepairStatus)
-
-  @Html.LabelFor(model => model.InspectionDate)
-  @Html.TextBoxFor(model => model.InspectionDate, new { type="date" })
+  
   <input type="submit" value="Add Machine" />
 }
